@@ -1,17 +1,5 @@
-# flutterkaigi
+Flutter会議2022 ハンズオン
 
-A new Flutter project.
+使用技術: flutter, githubのGraphQL API
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# FlutterKaigi2022
+機能: アプリからリポジトリのissueを追加・編集ができる。
