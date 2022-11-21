@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterkaigi/model/issu.dart';
+import 'package:flutterkaigi/model/issue.dart';
+import 'package:flutterkaigi/pages/issue_info.dart';
 import 'package:flutterkaigi/repositories/github_repository.dart';
 
 class IssueListPage extends StatelessWidget {
@@ -75,35 +76,55 @@ class CardItem extends StatelessWidget {
             textDirection: TextDirection.ltr,
             child: Card(
               color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Text(
-                      title,
-                      style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87),
+              child: Row(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          title,
+                          style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
+                      ),
+                      Text(
+                        message,
+                        style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black87),
+                      ),
+                      Text(
+                        updatedAt,
+                        style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black87),
+                      ),
+
+                    ],
+                  ),
+                  IconButton(
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return IssueInputPage(
+                            id: id,
+                            title: title,
+                            body: message,
+                          );
+                        },
+                      ),
+                    ),
+                    icon: const Icon(
+                      Icons.create_outlined,
                     ),
                   ),
-                  Text(
-                    message,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black87),
-                  ),
-                  Text(
-                    updatedAt,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black87),
-                  ),
-
                 ],
               ),
             ),

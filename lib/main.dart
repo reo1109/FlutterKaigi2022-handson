@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterkaigi/pages/index.dart';
+import 'package:flutterkaigi/pages/issue_info.dart';
 import 'package:flutterkaigi/provider/app_provider.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
@@ -40,8 +41,24 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(_appTitle),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return const IssueInputPage();
+                },
+              ),
+            ),
+            icon: const Icon(
+              Icons.add_circle_outline,
+              color: Colors.black,
+            ),
+          ),
+        ],
       ),
-      body: IssueListPage(),
+      body: const IssueInputPage(),
     );
+
   }
 }
